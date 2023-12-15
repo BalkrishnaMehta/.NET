@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "User Login";
+}
+
+<h2>User Login</h2>
+
+<form asp-controller="Home" asp-action="Login" method="post">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required />
+    <input type="hidden" id="signUpTime" name="signUpTime" value="@DateTime.Now.ToString()" />
+    <br /><br />
+    <input type="submit" value="Login" />
+</form>

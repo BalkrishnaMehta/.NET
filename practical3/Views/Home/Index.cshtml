@@ -1,0 +1,9 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    String timeOfDay = Model;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Good @timeOfDay</h1>
+    <img src="images/@(timeOfDay).png" alt="Time of Day Image" style="max-width: 100%; height: auto;" />
+</div>

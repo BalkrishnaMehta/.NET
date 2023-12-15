@@ -1,0 +1,49 @@
+﻿@{
+    var birds = new[]
+    {
+        new { Name = "American Robin", ScientificName = "Turdus migratorius", Habitat = "Forests, Gardens", Region = "North America" },
+        new { Name = "Mallard Duck", ScientificName = "Anas platyrhynchos", Habitat = "Lakes, Rivers", Region = "Worldwide" },
+        new { Name = "Bald Eagle", ScientificName = "Haliaeetus leucocephalus", Habitat = "Mountains, Coastlines", Region = "North America" },
+        new { Name = "European Robin", ScientificName = "Erithacus rubecula", Habitat = "Woodlands, Parks", Region = "Europe" },
+        new { Name = "Blue Jay", ScientificName = "Cyanocitta cristata", Habitat = "Forests, Urban Areas", Region = "North America" },
+        new { Name = "Emperor Penguin", ScientificName = "Aptenodytes forsteri", Habitat = "Antarctic", Region = "Antarctica" },
+        new { Name = "Great Horned Owl", ScientificName = "Bubo virginianus", Habitat = "Forests, Plains", Region = "Americas" },
+        new { Name = "Hummingbird", ScientificName = "Trochilidae Family", Habitat = "Gardens, Tropical Forests", Region = "Americas" },
+        new { Name = "Peacock", ScientificName = "Pavo cristatus", Habitat = "Forests, Grasslands", Region = "Indian Subcontinent" },
+        new { Name = "Sparrow", ScientificName = "Passeridae Family", Habitat = "Urban Areas, Grasslands", Region = "Worldwide" }
+    };
+}
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width"/>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <title>practical5</title>
+    </head>
+    <body>
+        <div class="text-center p-5">
+            <h1 class="display-4">Ten different Birds</h1>
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Bird</th>
+                        <th>Scientific Name</th>
+                        <th>Habitat</th>
+                        <th>Region</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var bird in birds)
+                    {
+                        <tr>
+                            <td>@bird.Name</td>
+                            <td>@bird.ScientificName</td>
+                            <td>@bird.Habitat</td>
+                            <td>@bird.Region</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

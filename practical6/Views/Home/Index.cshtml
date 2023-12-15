@@ -1,0 +1,48 @@
+﻿@model List<Employee>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>practical6</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Employee List</h1>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Hired Date</th>
+                    <th>Department/Office</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var employee in Model)
+                {
+                    <tr>
+                        <td>@employee.Id</td>
+                        <td>@employee.Name</td>
+                        <td>@(employee.HiredDate.HasValue ? employee.HiredDate.Value.ToShortDateString() : "N/A")</td>
+                        <td>
+                            @if (employee is Manager manager)
+                            {
+                                <span>Department: @manager.Department</span>
+                            }
+                            else if (employee is Clerk clerk)
+                            {
+                                <span>Office: @clerk.Office</span>
+                            }
+                            else
+                            {
+                                <span>N/A</span>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

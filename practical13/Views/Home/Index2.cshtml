@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Display TempData";
+    var address1 = ViewData["Address1"] as Address;
+}
+
+<div class="text-center">
+    <h2>Data from ViewData</h2>
+    <p>Message: @ViewData["Message1"]</p>
+    <address1>
+        @address1!.Name<br/>
+        @address1!.Street<br/>
+        @address1!.City, @address1!.State, @address1!.PostalCode<br />
+    </address1>
+
+
+    <h2>Data from ViewBag</h2>
+    <p>Message: @ViewBag.Message2</p>
+
+    <h2>Data from TempData</h2>
+    <p>Message: @TempData["Message3"]</p>
+</div>

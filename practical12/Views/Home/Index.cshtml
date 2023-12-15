@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Products API";
+}
+@{
+    string post = @"
+        Invoke-RestMethod -Uri 'http://localhost:5168/api/products' -Method POST -Body (@{
+            Name='Tshirt';
+            Price=182.75;
+            CategoryId=3;
+            SupplierId=2
+        } | ConvertTo-Json) -ContentType 'application/json'
+    ";
+}
+
+@{
+    string put = @"Invoke-RestMethod -Uri 'http://localhost:5168/api/products' -Method PUT -Body (@{
+        ProductId = 6;
+        Name = 'TShirts';
+        Price = 120.75;
+        CategoryId = 1;
+        SupplierId = 1
+    } | ConvertTo-Json) -ContentType 'application/json'";
+}
+
+<div class="container mt-5">
+    <h1>Welcome to the Products API</h1>
+
+    <h2>Get Products</h2>
+    <p>To get all products, use the following link:</p>
+    <a href="api/Products" class="btn btn-primary mb-3">GET api/Products</a>
+
+    <h2>Get a Product by ID</h2>
+    <p>To get a product by its ID, use the following URL pattern:</p>
+    <code>GET api/Products/{id}</code>
+    <p>Replace <em>{id}</em> with the actual ID of the product.</p>
+
+    <h2>Add a New Product</h2>
+    <pre class="border p-3 bg-light">
+        @Html.Raw(@post)
+    </pre>
+    <p>Replace the properties with the values for product to be added.</p>
+
+    <h2>Update an Existing Product</h2>
+    <pre class="border p-3 bg-light">
+        @put
+    </pre>
+    <p>Replace the properties with the updated values for the respective product.</p>
+
+    <h2>Delete a Product by ID</h2>
+    <pre class="border p-3 bg-light">
+        Invoke-RestMethod -Uri "http://localhost:5168/api/products/6" -Method DELETE
+    </pre>
+    <p>Replace the 6 by id of product to be deleted.</p>
+</div>
